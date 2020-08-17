@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+</head>
+<body>
+    <div id="datos">
+        ok
+    </div>
+</body>
+<script>
+    var webSocket;
+    function socketConnect() {
+        webSocket = new WebSocket("ws://" + location.hostname + ":" + location.port + "/sensores");
+        webSocket.onmessage = function (datos) {
+            console.log(datos)
+            console.log("I am making a connection");
+            elem = document.createElement("div");
+            elem.id = 'myID';
+            elem.innerHTML = JSON.stringify(datos.data)
+            document.getElementById("datos").appendChild(elem);
+        };
+    }
+    function connect() {
+        if (!webSocket || webSocket.readyState === 3) {
+            socketConnect();
+        }
+    }
+    setInterval(connect, 1000);
+</script>
+</html>
