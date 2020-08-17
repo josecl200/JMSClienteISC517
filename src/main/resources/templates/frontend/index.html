@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+  <head>
+    <meta charset="utf-8" />
+    <link rel="apple-touch-icon" sizes="76x76" href="img/apple-icon.png">
+    <link rel="icon" type="image/png" href="img/favicon.png">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>Practica JMS</title>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+    <!--     Fonts and icons     -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+    <!-- CSS Files -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/now-ui-dashboard.css?v=1.0.1" rel="stylesheet" />
+    <!-- CSS Just for demo purpose, don't include it in your project -->
+    <!--<link href="../assets/demo/demo.css" rel="stylesheet" />-->
+  </head>
+  
+  <body class="">
+    
+    <div class="wrapper ">
+      
+      <div class="main-panel">
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-transparent  navbar-absolute bg-primary fixed-top">
+          <div class="container-fluid">
+            
+            
+            <div class="navbar-wrapper">
+              <div class="navbar-toggle">
+                <button type="button" class="navbar-toggler">
+                  <span class="navbar-toggler-bar bar1"></span>
+                </button>
+              </div>
+              <a class="navbar-brand" href="index.html" id="topple">Reporte de sensores</a>
+            </div>
+            
+            
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-bar navbar-kebab"></span>
+            </button>
+            
+            
+            <div class="collapse navbar-collapse justify-content-end" id="navigation">
+              <ul class="navbar-nav">
+
+                <li class="nav-item">
+                  <a class="nav-link" href="#statis"> Sensor 1
+                    <i class="now-ui-icons media-2_sound-wave"></i>
+                    <p>
+                      <span class="d-lg-none d-md-block">Sensor 1</span>
+                    </p>
+                  </a>
+                </li>
+
+                <li class="nav-item">
+                  <a class="nav-link" href="#statis2">Sensor 2
+                    <i class="now-ui-icons media-2_sound-wave"></i>
+                    <p>
+                      <span class="d-lg-none d-md-block">Sensor 2</span>
+                    </p>
+                  </a>
+                </li>
+
+              </ul>
+            </div>              
+            
+            
+          </div>
+        </nav>
+        
+        <!-- End Navbar -->
+        
+
+	
+        <div class="content" id="statis">
+
+          <div class="panel-header panel-header-lg" id="contenedorG1a">
+            <canvas id="grafico1A"></canvas>
+          </div>
+
+          <div class="panel-header panel-header-lg" id="contenedorG1b">
+            <canvas id="grafico1B"></canvas>
+          </div>
+
+          <a class="nav-link" href="#topple">Regresar
+            <i class="now-ui-icons media-2_sound-wave"></i>
+          </a>
+
+          <div class="content" id="statis2"></div>
+
+          <div class="panel-header panel-header-lg" id="contenedorG2a">
+            <canvas id="grafico2A"></canvas>
+          </div>
+
+          <div class="panel-header panel-header-lg" id="contenedorG2b">
+            <canvas id="grafico2B"></canvas>
+          </div>
+          
+          <a class="nav-link" href="#topple">Regresar
+            <i class="now-ui-icons media-2_sound-wave"></i>
+          </a>
+            
+            
+	    <div class="row">
+                    <div class="col-lg-4">
+                        <div class="card card-chart">
+                            
+                        </div>
+                    </div>
+                    
+                    
+                    
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card card-chart">
+                           
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card card-chart">
+                            
+                        </div>
+                    </div>
+        </div>
+          
+          <div class="row">
+            <div class="col-md-6">
+              <div class="card card-tasks">
+                <div class="card-header">
+                        <h5 class="card-category">Datos Recopilados</h5>
+                        <h4 class="card-title">Info</h4>
+                      </div>
+                      <div class="card-body">
+                        <div class="table-full-width table-responsive">
+                          <table class="table">
+                            <tbody>
+                              <tr>
+                                  <td class="text-left">
+                                      <p> Esta pagina contiene los datos recopilados de humedad y temperaratura de los dos censores.</p>
+                                    </td>
+                                </tr>
+                                
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+
+                      <div class="card-footer">
+                        <hr>
+                        <div class="stats">
+                          <i class="now-ui-icons ui-2_time-alarm"></i> Modelo generado a ultima lectura.
+                        </div>
+                      </div>
+              </div>
+            </div>
+            
+          </div>
+          
+          
+        </div>
+        <footer class="footer">
+          <div class="container-fluid">
+            
+            <div class="copyright">
+              &copy;
+              <script>
+                document.write(new Date().getFullYear())
+              </script>, Grupo Double [GG].
+            </div>
+
+            </div>
+          </footer>
+        </div>
+      </div>
+</body>
+
+<!--   Core JS Files   -->
+<script src="js/core/jquery.min.js"></script>
+<script src="js/core/popper.min.js"></script>
+<script src="js/core/bootstrap.min.js"></script>
+<script src="js/plugins/perfect-scrollbar.jquery.min.js"></script>
+<!-- Chart JS -->
+<script src="js/plugins/chartjs.min.js"></script>
+<!--  Notifications Plugin    -->
+<script src="js/plugins/bootstrap-notify.js"></script>
+<!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
+<script src="js/now-ui-dashboard.js?v=1.0.1"></script>
+<script src="https://js.pusher.com/4.0/pusher.min.js"></script>
+
+
+
+
+  <!--   Graf 1 calor   -->
+
+  <script>
+
+  function ajax(url, method, successCallback){
+      var xhr = new XMLHttpRequest();
+      xhr.open(method, url, true);
+      xhr.onreadystatechange = function () {
+          if (xhr.readyState != 4 || xhr.status != 200) return;
+          successCallback(xhr.responseText);
+      };
+      xhr.send();
+  }
+  function updateChart(Tiempo,Calor){
+      var chartColor = "#FFFFFF";
+    
+     
+      function renderChart1A(caseData) {
+	  var ctx = document.getElementById('grafico1A').getContext("2d");
+      ctx.clearRect(0,0,document.getElementById('grafico1A').width,document.getElementById('grafico1A').height);
+	  var gradientStroke = ctx.createLinearGradient(500, 0, 100, 0);
+          var gradientFill = ctx.createLinearGradient(0, 200, 0, 50);
+	  gradientFill.addColorStop(0, "rgba(128, 182, 244, 0)");
+	  gradientFill.addColorStop(1, "rgba(255, 255, 255, 0.24)");
+	  gradientStroke.addColorStop(0, '#80b6f4');
+	  gradientStroke.addColorStop(1, chartColor);
+	  var options = { };
+
+	  var weatherChartRef = new Chart(ctx, {
+              type: "line",
+              data: caseData,
+              options: {
+              layout: {
+                  padding: {
+                      left: 20,
+                      right: 20,
+                      top: 0,
+                      bottom: 0
+                  }
+              },
+              maintainAspectRatio: false,
+              tooltips: {
+                backgroundColor: '#fff',
+                titleFontColor: '#333',
+                bodyFontColor: '#666',
+                bodySpacing: 4,
+                xPadding: 12,
+                mode: "nearest",
+                intersect: 0,
+                position: "nearest"
+              },
+              legend: {
+                  position: "bottom",
+                  fillStyle: "#FFF",
+                  display: false
+              },
+              scales: {
+                  yAxes: [{
+                      ticks: {
+                          fontColor: "rgba(255,255,255,0.4)",
+                          fontStyle: "bold",
+                          beginAtZero: true,
+                          maxTicksLimit: 5,
+                          padding: 10
+                      },
+                      gridLines: {
+                          drawTicks: true,
+                          drawBorder: false,
+                          display: true,
+                          color: "rgba(255,255,255,0.1)",
+                          zeroLineColor: "transparent"
+                      }
+
+                  }],
+                  xAxes: [{
+                      gridLines: {
+                          zeroLineColor: "transparent",
+                          display: false,
+
+                      },
+                      ticks: {
+                          padding: 10,
+                          fontColor: "rgba(255,255,255,0.4)",
+                          fontStyle: "bold"
+                      }
+                  }]
+              }
+          }
+	  });
+      }
+      
+      var myChart = {
+	  labels: [],
+	  datasets: [{
+              label: "Cambios de temperatura",
+              borderColor: chartColor,
+              pointBorderColor: chartColor,
+              pointBackgroundColor: "#1e3d60",
+              pointHoverBackgroundColor: "#1e3d60",
+              pointHoverBorderColor: chartColor,
+              pointBorderWidth: 1,
+              pointHoverRadius: 7,
+              pointHoverBorderWidth: 2,
+              pointRadius: 5,
+              fill: true,
+              borderWidth: 2,
+              data: []
+	  }]   
+          
+      };
+      
+      
+      
+      console.log(pais);
+      ajax('http://3.82.235.119:42069/'.concat(pais).concat("/1"), "GET", onFetchFirstDateSuccess);
+      function onFetchFirstDateSuccess(response){
+	  var respData = JSON.parse(response);
+	  var primerafecha=respData.First_Case_Date.split("-");
+	  var primeraDate=new Date(primerafecha[0],primerafecha[1]-1,primerafecha[2]);
+	  let difFechas=Math.ceil((fechaSeleccionada-primeraDate)/(1000*60*60*24));
+      ajax('http://3.82.235.119:42069/'.concat(pais).concat("/").concat(difFechas), "GET", onFetchDaterSuccess);
+      }
+      function onFetchDaterSuccess(response){
+	  var respData = JSON.parse(response)
+	  var fechas=[];
+	  var casos=[];
+	  for(i=0;i<respData.data.length;i++){
+	      fechas.push(respData.data[i].Date)
+	      casos.push(respData.data[i].Cases)
+	  }
+	  myChart.labels = Tiempo;
+	  myChart.datasets[0].data=Calor;
+      $("#grafico1A").remove();
+      $("#contenedorG1a").append("<canvas id=grafico1A></canvas>");
+	  renderChart1A(myChart)
+      }
+     
+  }
+  
+</script>
+
+  <!--   Graf 1 Humedad   -->
+
+  <script>
+
+    function ajax(url, method, successCallback){
+      var xhr = new XMLHttpRequest();
+      xhr.open(method, url, true);
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState != 4 || xhr.status != 200) return;
+        successCallback(xhr.responseText);
+      };
+      xhr.send();
+    }
+    function updateChart(Tiempo,Calor){
+      var chartColor = "#FFFFFF";
+
+
+      function renderChart1B(caseData) {
+        var ctx = document.getElementById('grafico1B').getContext("2d");
+        ctx.clearRect(0,0,document.getElementById('grafico1B').width,document.getElementById('grafico1B').height);
+        var gradientStroke = ctx.createLinearGradient(500, 0, 100, 0);
+        var gradientFill = ctx.createLinearGradient(0, 200, 0, 50);
+        gradientFill.addColorStop(0, "rgba(128, 182, 244, 0)");
+        gradientFill.addColorStop(1, "rgba(255, 255, 255, 0.24)");
+        gradientStroke.addColorStop(0, '#80b6f4');
+        gradientStroke.addColorStop(1, chartColor);
+        var options = { };
+
+        var weatherChartRef = new Chart(ctx, {
+          type: "line",
+          data: caseData,
+          options: {
+            layout: {
+              padding: {
+                left: 20,
+                right: 20,
+                top: 0,
+                bottom: 0
+              }
+            },
+            maintainAspectRatio: false,
+            tooltips: {
+              backgroundColor: '#fff',
+              titleFontColor: '#333',
+              bodyFontColor: '#666',
+              bodySpacing: 4,
+              xPadding: 12,
+              mode: "nearest",
+              intersect: 0,
+              position: "nearest"
+            },
+            legend: {
+              position: "bottom",
+              fillStyle: "#FFF",
+              display: false
+            },
+            scales: {
+              yAxes: [{
+                ticks: {
+                  fontColor: "rgba(255,255,255,0.4)",
+                  fontStyle: "bold",
+                  beginAtZero: true,
+                  maxTicksLimit: 5,
+                  padding: 10
+                },
+                gridLines: {
+                  drawTicks: true,
+                  drawBorder: false,
+                  display: true,
+                  color: "rgba(255,255,255,0.1)",
+                  zeroLineColor: "transparent"
+                }
+
+              }],
+              xAxes: [{
+                gridLines: {
+                  zeroLineColor: "transparent",
+                  display: false,
+
+                },
+                ticks: {
+                  padding: 10,
+                  fontColor: "rgba(255,255,255,0.4)",
+                  fontStyle: "bold"
+                }
+              }]
+            }
+          }
+        });
+      }
+
+      var myChart = {
+        labels: [],
+        datasets: [{
+          label: "Cambios de humedad",
+          borderColor: chartColor,
+          pointBorderColor: chartColor,
+          pointBackgroundColor: "#1e3d60",
+          pointHoverBackgroundColor: "#1e3d60",
+          pointHoverBorderColor: chartColor,
+          pointBorderWidth: 1,
+          pointHoverRadius: 7,
+          pointHoverBorderWidth: 2,
+          pointRadius: 5,
+          fill: true,
+          borderWidth: 2,
+          data: []
+        }]
+
+      };
+
+
+
+      console.log(pais);
+      ajax('http://3.82.235.119:42069/'.concat(pais).concat("/1"), "GET", onFetchFirstDateSuccess);
+      function onFetchFirstDateSuccess(response){
+        var respData = JSON.parse(response);
+        var primerafecha=respData.First_Case_Date.split("-");
+        var primeraDate=new Date(primerafecha[0],primerafecha[1]-1,primerafecha[2]);
+        let difFechas=Math.ceil((fechaSeleccionada-primeraDate)/(1000*60*60*24));
+        ajax('http://3.82.235.119:42069/'.concat(pais).concat("/").concat(difFechas), "GET", onFetchDaterSuccess);
+      }
+      function onFetchDaterSuccess(response){
+        var respData = JSON.parse(response)
+        var fechas=[];
+        var casos=[];
+        for(i=0;i<respData.data.length;i++){
+          fechas.push(respData.data[i].Date)
+          casos.push(respData.data[i].Cases)
+        }
+        myChart.labels = Tiempo;
+        myChart.datasets[0].data=Calor;
+        $("#grafico1B").remove();
+        $("#contenedorG1b").append("<canvas id=grafico1B></canvas>");
+        renderChart1B(myChart)
+      }
+
+    }
+
+  </script>
+
+  <!--   Graf 2 calor   -->
+
+  <script>
+
+    function ajax(url, method, successCallback){
+      var xhr = new XMLHttpRequest();
+      xhr.open(method, url, true);
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState != 4 || xhr.status != 200) return;
+        successCallback(xhr.responseText);
+      };
+      xhr.send();
+    }
+    function updateChart(Tiempo,Calor){
+      var chartColor = "#FFFFFF";
+
+
+      function renderChart2A(caseData) {
+        var ctx = document.getElementById('grafico2A').getContext("2d");
+        ctx.clearRect(0,0,document.getElementById('grafico2A').width,document.getElementById('grafico2A').height);
+        var gradientStroke = ctx.createLinearGradient(500, 0, 100, 0);
+        var gradientFill = ctx.createLinearGradient(0, 200, 0, 50);
+        gradientFill.addColorStop(0, "rgba(128, 182, 244, 0)");
+        gradientFill.addColorStop(1, "rgba(255, 255, 255, 0.24)");
+        gradientStroke.addColorStop(0, '#80b6f4');
+        gradientStroke.addColorStop(1, chartColor);
+        var options = { };
+
+        var weatherChartRef = new Chart(ctx, {
+          type: "line",
+          data: caseData,
+          options: {
+            layout: {
+              padding: {
+                left: 20,
+                right: 20,
+                top: 0,
+                bottom: 0
+              }
+            },
+            maintainAspectRatio: false,
+            tooltips: {
+              backgroundColor: '#fff',
+              titleFontColor: '#333',
+              bodyFontColor: '#666',
+              bodySpacing: 4,
+              xPadding: 12,
+              mode: "nearest",
+              intersect: 0,
+              position: "nearest"
+            },
+            legend: {
+              position: "bottom",
+              fillStyle: "#FFF",
+              display: false
+            },
+            scales: {
+              yAxes: [{
+                ticks: {
+                  fontColor: "rgba(255,255,255,0.4)",
+                  fontStyle: "bold",
+                  beginAtZero: true,
+                  maxTicksLimit: 5,
+                  padding: 10
+                },
+                gridLines: {
+                  drawTicks: true,
+                  drawBorder: false,
+                  display: true,
+                  color: "rgba(255,255,255,0.1)",
+                  zeroLineColor: "transparent"
+                }
+
+              }],
+              xAxes: [{
+                gridLines: {
+                  zeroLineColor: "transparent",
+                  display: false,
+
+                },
+                ticks: {
+                  padding: 10,
+                  fontColor: "rgba(255,255,255,0.4)",
+                  fontStyle: "bold"
+                }
+              }]
+            }
+          }
+        });
+      }
+
+      var myChart = {
+        labels: [],
+        datasets: [{
+          label: "Cambios de temperatura",
+          borderColor: chartColor,
+          pointBorderColor: chartColor,
+          pointBackgroundColor: "#1e3d60",
+          pointHoverBackgroundColor: "#1e3d60",
+          pointHoverBorderColor: chartColor,
+          pointBorderWidth: 1,
+          pointHoverRadius: 7,
+          pointHoverBorderWidth: 2,
+          pointRadius: 5,
+          fill: true,
+          borderWidth: 2,
+          data: []
+        }]
+
+      };
+
+
+
+      console.log(pais);
+      ajax('http://3.82.235.119:42069/'.concat(pais).concat("/1"), "GET", onFetchFirstDateSuccess);
+      function onFetchFirstDateSuccess(response){
+        var respData = JSON.parse(response);
+        var primerafecha=respData.First_Case_Date.split("-");
+        var primeraDate=new Date(primerafecha[0],primerafecha[1]-1,primerafecha[2]);
+        let difFechas=Math.ceil((fechaSeleccionada-primeraDate)/(1000*60*60*24));
+        ajax('http://3.82.235.119:42069/'.concat(pais).concat("/").concat(difFechas), "GET", onFetchDaterSuccess);
+      }
+      function onFetchDaterSuccess(response){
+        var respData = JSON.parse(response)
+        var fechas=[];
+        var casos=[];
+        for(i=0;i<respData.data.length;i++){
+          fechas.push(respData.data[i].Date)
+          casos.push(respData.data[i].Cases)
+        }
+        myChart.labels = Tiempo;
+        myChart.datasets[0].data=Calor;
+        $("#grafico2A").remove();
+        $("#contenedorG2a").append("<canvas id=grafico2A></canvas>");
+        renderChart2A(myChart)
+      }
+
+    }
+
+  </script>
+
+  <!--   Graf 2 Humedad   -->
+
+  <script>
+
+    function ajax(url, method, successCallback){
+      var xhr = new XMLHttpRequest();
+      xhr.open(method, url, true);
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState != 4 || xhr.status != 200) return;
+        successCallback(xhr.responseText);
+      };
+      xhr.send();
+    }
+    function updateChart(Tiempo,Calor){
+      var chartColor = "#FFFFFF";
+
+
+      function renderChart2B(caseData) {
+        var ctx = document.getElementById('grafico2B').getContext("2d");
+        ctx.clearRect(0,0,document.getElementById('grafico2B').width,document.getElementById('grafico2B').height);
+        var gradientStroke = ctx.createLinearGradient(500, 0, 100, 0);
+        var gradientFill = ctx.createLinearGradient(0, 200, 0, 50);
+        gradientFill.addColorStop(0, "rgba(128, 182, 244, 0)");
+        gradientFill.addColorStop(1, "rgba(255, 255, 255, 0.24)");
+        gradientStroke.addColorStop(0, '#80b6f4');
+        gradientStroke.addColorStop(1, chartColor);
+        var options = { };
+
+        var weatherChartRef = new Chart(ctx, {
+          type: "line",
+          data: caseData,
+          options: {
+            layout: {
+              padding: {
+                left: 20,
+                right: 20,
+                top: 0,
+                bottom: 0
+              }
+            },
+            maintainAspectRatio: false,
+            tooltips: {
+              backgroundColor: '#fff',
+              titleFontColor: '#333',
+              bodyFontColor: '#666',
+              bodySpacing: 4,
+              xPadding: 12,
+              mode: "nearest",
+              intersect: 0,
+              position: "nearest"
+            },
+            legend: {
+              position: "bottom",
+              fillStyle: "#FFF",
+              display: false
+            },
+            scales: {
+              yAxes: [{
+                ticks: {
+                  fontColor: "rgba(255,255,255,0.4)",
+                  fontStyle: "bold",
+                  beginAtZero: true,
+                  maxTicksLimit: 5,
+                  padding: 10
+                },
+                gridLines: {
+                  drawTicks: true,
+                  drawBorder: false,
+                  display: true,
+                  color: "rgba(255,255,255,0.1)",
+                  zeroLineColor: "transparent"
+                }
+
+              }],
+              xAxes: [{
+                gridLines: {
+                  zeroLineColor: "transparent",
+                  display: false,
+
+                },
+                ticks: {
+                  padding: 10,
+                  fontColor: "rgba(255,255,255,0.4)",
+                  fontStyle: "bold"
+                }
+              }]
+            }
+          }
+        });
+      }
+
+      var myChart = {
+        labels: [],
+        datasets: [{
+          label: "Cambios de humedad",
+          borderColor: chartColor,
+          pointBorderColor: chartColor,
+          pointBackgroundColor: "#1e3d60",
+          pointHoverBackgroundColor: "#1e3d60",
+          pointHoverBorderColor: chartColor,
+          pointBorderWidth: 1,
+          pointHoverRadius: 7,
+          pointHoverBorderWidth: 2,
+          pointRadius: 5,
+          fill: true,
+          borderWidth: 2,
+          data: []
+        }]
+
+      };
+
+
+
+      console.log(pais);
+      ajax('http://3.82.235.119:42069/'.concat(pais).concat("/1"), "GET", onFetchFirstDateSuccess);
+      function onFetchFirstDateSuccess(response){
+        var respData = JSON.parse(response);
+        var primerafecha=respData.First_Case_Date.split("-");
+        var primeraDate=new Date(primerafecha[0],primerafecha[1]-1,primerafecha[2]);
+        let difFechas=Math.ceil((fechaSeleccionada-primeraDate)/(1000*60*60*24));
+        ajax('http://3.82.235.119:42069/'.concat(pais).concat("/").concat(difFechas), "GET", onFetchDaterSuccess);
+      }
+      function onFetchDaterSuccess(response){
+        var respData = JSON.parse(response)
+        var fechas=[];
+        var casos=[];
+        for(i=0;i<respData.data.length;i++){
+          fechas.push(respData.data[i].Date)
+          casos.push(respData.data[i].Cases)
+        }
+        myChart.labels = Tiempo;
+        myChart.datasets[0].data=Calor;
+        $("#grafico2B").remove();
+        $("#contenedorG2b").append("<canvas id=grafico2B></canvas>");
+        renderChart2B(myChart)
+      }
+
+    }
+
+  </script>
+
+
+
+</html>
