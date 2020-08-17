@@ -1,0 +1,23 @@
+plugins {
+    id 'java'
+}
+
+group 'edu.pucmm.josecl200'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compileOnly 'org.projectlombok:lombok:1.18.12'
+    annotationProcessor 'org.projectlombok:lombok:1.18.12'
+    testCompileOnly 'org.projectlombok:lombok:1.18.12'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.12'
+    compile 'com.sparkjava:spark-core:2.6.0'
+    compile group: 'org.thymeleaf', name: 'thymeleaf', version: '2.0.5'
+    compile 'com.sparkjava:spark-template-thymeleaf:2.3'
+    implementation 'com.rabbitmq:amqp-client:5.7.2'
+    compile group: 'org.apache.activemq', name: 'activemq-all', version: '5.15.1'
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
