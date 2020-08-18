@@ -1,0 +1,25 @@
+version: "3"
+
+services:
+  clientejms:
+    image: josecl200/clientejms:latest
+    ports:
+      - "80:4567"
+    networks:
+      - jms
+    depends_on:
+      - sensoresjms
+    links:
+      - "sensoresjms:sensor"
+    environment:
+      - sensoresURL=tcp://sensor:61616
+
+  sensoresjms:
+    image: josecl200/sensoresjms:latest
+    networks:
+      - jms
+    ports:
+      - "61616:61616"
+
+networks:
+  jms:

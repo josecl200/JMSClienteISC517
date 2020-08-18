@@ -18,7 +18,7 @@ public class Consoomer {
     }
 
     public void connect() throws JMSException {
-        factory = new ActiveMQConnectionFactory("root", "toor", "failover:tcp://localhost:61616");
+        factory = new ActiveMQConnectionFactory("root", "toor", "failover:"+System.getenv("sensoresURL"));
         connection = factory.createConnection();
         connection.start();
         session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);

@@ -22,6 +22,7 @@ import static spark.Spark.*;
 public class Clientes {
     public static List<Session> sesiones=new ArrayList<>();
     public static void main(String[] args) throws JMSException{
+        staticFileLocation("/static/");
         String queue = "sensores";
         webSocket("/sensores", WebSocketSessionManager.class);
         get("/",(request, response) -> new ModelAndView(new HashMap<String,Object>(),"index"),new ThymeleafTemplateEngine());
